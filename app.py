@@ -84,7 +84,7 @@ with paraphrase_tab:
             st.info(paraphrase_input)
         with col2:
             if translate_flag_paraphrase:
-                st.success(translate(paraphrase_text(paraphrase_input),translate_language_summarize))
+                st.success(translate(paraphrase_text(paraphrase_input),translate_language_paraphrase))
             else:
                 st.success(paraphrase_text(paraphrase_input))
 
