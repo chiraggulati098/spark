@@ -3,5 +3,5 @@ txtai[all]
 deep_translator
 torch
 transformers
-sentence_splitter
+sentence-splitter
 SentencePiece
