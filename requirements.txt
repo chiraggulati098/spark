@@ -1,3 +1,7 @@
 streamlit
 txtai[all]
 deep_translator
+torch
+transformers
+sentence_splitter
+SentencePiece
