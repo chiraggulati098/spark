@@ -1,3 +1,2 @@
-txtai[all]
 txtai==7.1.0
 deep-translator==1.11.4
