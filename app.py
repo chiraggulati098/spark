@@ -71,11 +71,10 @@ with summarize_tab:
         with col1:
             st.info(summarize_input)
         with col2:
-            summary_result = generate_summary(summarize_input)
             if translate_flag_summarize:
-                st.success(translate(summary_result,translate_language_summarize))
+                st.success(translate(generate_summary(summarize_input),translate_language_summarize))
             else:
-                st.success(summary_result)
+                st.success(generate_summary(summarize_input))s
 
 with paraphrase_tab:
     st.subheader("Paraphrase")
