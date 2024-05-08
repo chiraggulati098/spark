@@ -70,6 +70,9 @@ with summarize_tab:
             else:
                 st.success(generate_summary(summarize_input))
 
+with paraphrase_tab:
+    st.subheader("Paraphrasing Capabilities will be Added in the Next Update :)")
+
 # with paraphrase_tab:
 #     st.subheader("Paraphrase")
 #     paraphrase_input = st.text_area('Enter text to Paraphrase',height = 200)
@@ -100,3 +103,6 @@ with translate_tab:
             st.info(tranlate_input)
         with col2:
             st.success(translate(tranlate_input,translate_language))
+
+st.markdown("")
+st.markdown('Created with ❤️ by Chirag, Daksh, Ayushmaan, and Armaan')
