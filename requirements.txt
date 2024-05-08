@@ -1,6 +1,6 @@
 txtai==7.1.0
 deep-translator==1.11.4
-torch==2.3.0+cu118
+torch
 transformers==4.40.2
 sentence-splitter==1.4
-sentencepiece==0.2.0
+SentencePiece==0.2.0
