@@ -74,7 +74,7 @@ with summarize_tab:
             if translate_flag_summarize:
                 st.success(translate(generate_summary(summarize_input),translate_language_summarize))
             else:
-                st.success(generate_summary(summarize_input))s
+                st.success(generate_summary(summarize_input))
 
 with paraphrase_tab:
     st.subheader("Paraphrase")
