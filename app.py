@@ -83,7 +83,7 @@ with paraphrase_tab:
     translate_flag_paraphrase = st.toggle("Translate the Output")
     if translate_flag_paraphrase:
         translate_language_paraphrase = st.selectbox('Select Language to Translate', [x.title() for x in language_list]).lower()
-    if st.button(pip'Paraphrase'):
+    if st.button('Paraphrase'):
         col1, col2 = st.columns(2)
         col1.write('Your Input Text')
         col2.write('Paraphrased Text')
