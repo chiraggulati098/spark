@@ -15,17 +15,17 @@ torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 @st.cache_resource
 def loading_SPARK():
+    summary = Summary()
     model_name = 'tuner007/pegasus_paraphrase'
     tokenizer = PegasusTokenizer.from_pretrained(model_name)
     model = PegasusForConditionalGeneration.from_pretrained(model_name).to(torch_device)
     splitter = SentenceSplitter(language='en')
-    return tokenizer, model, splitter
+    return summary, tokenizer, model, splitter
 
-tokenizer, model, splitter = loading_SPARK()
+summary, tokenizer, model, splitter = loading_SPARK()
 
 @st.cache_resource
 def generate_summary(text):
-    summary = Summary()
     return summary((text))
 
 @st.cache_resource
