@@ -24,12 +24,12 @@ def loading_SPARK():
 
 tokenizer, model, splitter = loading_SPARK()
 
-@st.cache_resource(ttl=600) # stays in cache for 10 mins
+@st.cache_resource
 def generate_summary(text):
     summary = Summary()
     return summary((text))
 
-@st.cache_resource(ttl=300) # stays in cache for 5 mins
+@st.cache_resource
 def translate(text,target_lang,input_lang = 'english'):
     return GoogleTranslator(source=input_lang, target=target_lang).translate(text)
 
@@ -40,8 +40,9 @@ def get_response(input_text,num_return_sequences=1):
     tgt_text = tokenizer.batch_decode(translated, skip_special_tokens=True)
     return tgt_text
 
-@st.cache_resource(ttl=600) # stays in cache for 10 mins
+@st.cache_resource
 def paraphrase_text(text):
+    text = text.replace('\n',' ')
     sentence_list = splitter.split(text)
     paraphrase = []
 
