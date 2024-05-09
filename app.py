@@ -24,23 +24,23 @@ def loading_SPARK():
 
 tokenizer, model, splitter = loading_SPARK()
 
-@st.cache_resource
+@st.cache_resource(show_spinner="Summarizing")
 def generate_summary(text):
     summary = Summary()
     return summary((text))
 
-@st.cache_resource
+@st.cache_resource(show_spinner="Translating")
 def translate(text,target_lang,input_lang = 'english'):
     return GoogleTranslator(source=input_lang, target=target_lang).translate(text)
 
-@st.cache_resource
+@st.cache_resource(show_spinner="Paraphrasing")
 def get_response(input_text,num_return_sequences=1):
     batch = tokenizer.prepare_seq2seq_batch([input_text],truncation=True,padding='longest',max_length=60, return_tensors="pt").to(torch_device)
     translated = model.generate(**batch,max_length=60,num_beams=10, num_return_sequences=num_return_sequences, temperature=1.5)
     tgt_text = tokenizer.batch_decode(translated, skip_special_tokens=True)
     return tgt_text
 
-@st.cache_resource
+@st.cache_resource(show_spinner="Paraphrasing")
 def paraphrase_text(text):
     text = text.replace('\n',' ')
     sentence_list = splitter.split(text)
