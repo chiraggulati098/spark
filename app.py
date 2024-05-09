@@ -14,7 +14,7 @@ language_list = ['chinese (simplified)','french','german','greek','gujarati',
 torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 @st.cache_resource
-def loading_SPARK():
+def loading_paraphraser():
     summary = Summary()
     model_name = 'tuner007/pegasus_paraphrase'
     tokenizer = PegasusTokenizer.from_pretrained(model_name)
@@ -22,10 +22,11 @@ def loading_SPARK():
     splitter = SentenceSplitter(language='en')
     return summary, tokenizer, model, splitter
 
-summary, tokenizer, model, splitter = loading_SPARK()
+# tokenizer, model, splitter = loading_SPARK()
 
 @st.cache_resource
 def generate_summary(text):
+    summary = Summary()
     return summary((text))
 
 @st.cache_resource
@@ -41,6 +42,8 @@ def get_response(input_text,num_return_sequences):
 
 @st.cache_resource
 def paraphrase_text(text):
+    tokenizer, model, splitter = loading_paraphraser()
+
     sentence_list = splitter.split(text)
     paraphrase = []
 
