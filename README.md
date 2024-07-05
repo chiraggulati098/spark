@@ -2,6 +2,8 @@
 
 SPARK is an end-to-end text processing application designed to simplify and enhance text manipulation tasks. Using SOTA technologies, SPARK provides functionalities for summarizing, paraphrasing, and translating text through an intuitive Streamlit interface.
 
+I made this for a Software Engineering Project.
+
 ## Features
 
 - **Summarization**: Quickly generate concise summaries of long text passages.
